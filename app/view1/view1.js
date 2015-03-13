@@ -13,13 +13,8 @@ angular.module('myApp.view1', ['ngRoute','finance'])
         this.qty = 1;
         this.cost = 2;
         this.inCurr = 'EUR';
-        this.currencies = ['USD', 'EUR', 'CNY'];
-        this.usdToForeignRates = {
-            USD: 1,
-            EUR: 0.74,
-            CNY: 6.09
-        };
-        this.
+        this.currencies = currencyConverter.currencies;
+
         this.total = function total(outCurr) {
             return currencyConverter.convert(this.qty * this.cost, this.inCurr, outCurr);
         };
