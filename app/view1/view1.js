@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute','finance'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,7 +9,7 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('View1Ctrl', ['currencyConverter',function(currencyConverter) {
         this.qty = 1;
         this.cost = 2;
         this.inCurr = 'EUR';
@@ -19,14 +19,11 @@ angular.module('myApp.view1', ['ngRoute'])
             EUR: 0.74,
             CNY: 6.09
         };
-
+        this.
         this.total = function total(outCurr) {
-            return this.convertCurrency(this.qty * this.cost, this.inCurr, outCurr);
-        };
-        this.convertCurrency = function convertCurrency(amount, inCurr, outCurr) {
-            return amount * this.usdToForeignRates[outCurr] / this.usdToForeignRates[inCurr];
+            return currencyConverter.convert(this.qty * this.cost, this.inCurr, outCurr);
         };
         this.pay = function pay() {
-            window.alert("Thanks!");
+            window.alert("Thanks to you!");
         };
 }]);
