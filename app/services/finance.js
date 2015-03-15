@@ -36,4 +36,3 @@ angular.module('finance', [])
             refresh: refresh()
         };
     }]);
-

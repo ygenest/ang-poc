@@ -1,0 +1,44 @@
+/* http://beta.json-generator.com */
+[
+  '{{repeat(5, 7)}}',
+  {
+    "requestId":"{{integer(1000,9999)}}",
+    "scmId":"{{integer(500,999)}}",
+    "requestVersion":"{{integer(1,4)}}",
+    "requestStatus":"{{random('S','R','I','C')}}",
+    "requestType":"CM",
+    "requesterName":"{{firstName()}} {{surname()}}",
+    "requesterEmail":function (tags) {
+  return (this.requesterName.replace(' ','.') + '@tdassurance.com').toLowerCase();
+},
+  "costCenterID":"{{integer(4000,9999)}}",
+  "revenueCCId":"{{integer(17000,17999)}}",
+  "projectId":"IT{{integer(2000,2999)}}",
+  "projectName":"{{lorem(1, 'sentences')}}",
+  "projectManager":"{{firstName()}} {{surname()}}",
+  "projectManagerEmail":function (tags) {
+  return (this.projectManager.replace(' ','.') + '@tdassurance.com').toLowerCase();
+},
+  "projectImplementationDate":"{{date(new Date(), new Date(2016,6,1)).toLocaleDateString('en-US')}}",
+  "projectDateNotDefinitive":"{{bool()}}",
+  "projectContacts":['{{repeat(1,3)}}' ,
+{
+"name":"{{firstName()}} {{surname()}}",
+
+"email":function (tags) {
+return (this.name.replace(' ','.') + '@tdassurance.com').toLowerCase();
+}
+}
+],
+  "productRequested":['{{repeat(1,3)}}',
+
+"{{random('CLAIM','AG','CASPER','AS400','CLAIM-BATCH')}}"
+
+],
+  "requestCommnets":"{{lorem(1, 'paragraph')}}"
+
+
+
+
+  }
+]
