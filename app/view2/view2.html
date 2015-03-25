@@ -1,5 +1,6 @@
 
 <div ng-controller="View2Ctrl">
+
     <div class="col-md-2">
         <!--Sidebar content-->
 
@@ -17,7 +18,10 @@
             <option value="requesterName">Requester</option>
             <option value="projectName">Project Name</option>
         </select>
-    </div>
+
+        <button ng-click="$dialog.dialog({}).open('modal.html'); " class="btn btn-default">Add request</button>
+        </div>
+
   <table>
       <caption>Request List</caption>
     <thead>
@@ -43,4 +47,5 @@
         <td>{{r.projectImplementationDate}}</td>
     </tr>
 </table>
+
 </div>

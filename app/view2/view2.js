@@ -10,8 +10,13 @@ angular.module('myApp.view2', ['ngRoute'])
 }])
 
 .controller('View2Ctrl', function($scope, $http) {
+        $scope.showModal = false;
+        $scope.toggleModal = function(){
+            $scope.showModal = !$scope.showModal;
+        };
         $scope.orderProp='requestId';
     $http.get('requests/requests.json').success(function(data) {
         $scope.requests = data;
     });
-});
+})
+
